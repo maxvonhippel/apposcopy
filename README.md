@@ -9,6 +9,7 @@ http://www.cs.utexas.edu/~yufeng/papers/ndss17-astroid.pdf
 Prerequisite:
 
 Please make sure that you have installed JDK1.8, ANT and Android SDK and set the following env:
+
 ```
 export ANT_HOME=/home/yu/libs/apache-ant-1.9.2
 export ANDROID_HOME=/home/yu/libs/android-sdk-linux
@@ -28,25 +29,26 @@ To analyze a malware (Say, an app from ADRD family):
 
 1. Run apposcopy on the malware:
 
-    ./stamp analyze adrd/09b143b430e836c513279c0209b7229a4d29a18c.apk
+    `./stamp analyze adrd/09b143b430e836c513279c0209b7229a4d29a18c.apk`
 
 2. The result will be written into the corresponding log.txt:
 
-    stamp_output/_home_yu_research_ndss17-release_apposcopy_adrd_09b143b430e836c513279c0209b7229a4d29a18c.apk/chord_output/log.txt
+    `stamp_output/_home_yu_research_ndss17-release_apposcopy_adrd_09b143b430e836c513279c0209b7229a4d29a18c.apk/chord_output/log.txt`
 
     The ICCG (.json) will be stored in the following file:
-        stamp_output/_home_yu_research_ndss17-release_apposcopy_adrd_09b143b430e836c513279c0209b7229a4d29a18c.apk/09b143b430e836c513279c0209b7229a4d29a18c.json
+    
+        `stamp_output/_home_yu_research_ndss17-release_apposcopy_adrd_09b143b430e836c513279c0209b7229a4d29a18c.apk/09b143b430e836c513279c0209b7229a4d29a18c.json`
 
 [x] How to compute a signature of multiple ICCGs?
 
 1. Generate a new signature based on a random number of ICCGs of a given directory:
 
-   ./generate.sh samples/fse14/ADRD/ 2
+   `./generate.sh samples/fse14/ADRD/ 2`
 
    This will select 2 samples randomly from that directory and will generate a signature that unifies them.
    If this directory only contains k samples, you can ask for a signature that unifies the k samples.
 
-   Usage: ./generate.sh <samples> <size>
+   Usage: `./generate.sh <samples> <size>`
 
    Note that different runs may generate different signatures.
 
@@ -61,6 +63,7 @@ To analyze a malware (Say, an app from ADRD family):
 ```
 
    Example1:
+   
 ```
    ./approximate.sh signatures/ADRD.json samples/fse14/ADRD/09b143b430e836c513279c0209b7229a4d29a18c.json 4927 0
 ```
@@ -72,6 +75,7 @@ To analyze a malware (Say, an app from ADRD family):
 ```
 
    Example2a using lexicographical order:
+   
 ```
    ./approximate.sh signatures samples/fse14/ADRD/09b143b430e836c513279c0209b7229a4d29a18c.json 4927 0
 ```
@@ -95,6 +99,7 @@ To analyze a malware (Say, an app from ADRD family):
 ```
 
    Example2b using lexicographical order with frequency analysis:
+   
 ```
    ./approximate.sh signatures samples/fse14/ADRD/09b143b430e836c513279c0209b7229a4d29a18c.json 4927 1		
 ```
