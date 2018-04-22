@@ -2,8 +2,8 @@
 Semantics-Based Detection of Android Malware through Static Analysis
 
 Please refer to our papers for more details:
-http://www.cs.utexas.edu/~yufeng/papers/fse14.pdf
-http://www.cs.utexas.edu/~yufeng/papers/ndss17-astroid.pdf
+* [FSE14](http://www.cs.utexas.edu/~yufeng/papers/fse14.pdf)
+* [NDSS17](http://www.cs.utexas.edu/~yufeng/papers/ndss17-astroid.pdf)
 
 --------------------------------------------------------------------------
 Prerequisite:
