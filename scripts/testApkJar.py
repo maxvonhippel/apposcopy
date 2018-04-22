@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import xml.etree.ElementTree as Et
 import subprocess
 import argparse
@@ -97,7 +95,7 @@ def findAPKSrc(rootdir):
 """Kill long running stamp job"""
 def handle_alarm(signum, frame):
     # if triggered, kill long running job
-    print "Signal " + signum + " " + frame
+    print ("Signal ", signum, frame)
 
 
 """Run STAMP on APKs"""
@@ -107,7 +105,7 @@ def processAPK(pathtoapk):
 
     # Ignore non-apks
     if not pathtoapk.endswith('.apk'):
-        print "Not an apk: " + pathtoapk[-1:-3]
+        print("Not an apk: ", pathtoapk[-1:-3])
         return False
 
     # Execute stamp on an apk using dex2jar
@@ -259,7 +257,6 @@ def dumpFlowClassXML(xmlf):
         '!intent': "OnDevice",
         '!log': "OnDevice"}
 
-
     root = Et.Element('root')
 
     for k in sinkDict.keys():
@@ -353,10 +350,10 @@ if __name__ == "__main__":
             if len(apps[k]) >= 2:
                 for k in apps[k]:
                     if k.endswith('.apk'):
-                        print "Processing APK: " + k
+                        print ("Processing APK: ", k)
                         processAPK(k)
                     else:
-                        print "Processing SRC: " + k
+                        print ("Processing SRC: ", k)
                         processSrc(k)
             else:
                 print "Fail"

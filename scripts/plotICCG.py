@@ -15,7 +15,7 @@ import time
 from signal import alarm, signal, SIGALRM, SIGKILL, SIGTERM
 from random import randint
 
-print "Automatically execute stamp app:"
+print ("Automatically execute stamp app:")
 
 stampdir = "" 
 configFile = stampdir + "local.config"
@@ -36,7 +36,7 @@ def analyzeSrc2Sink(stampdir, appPath):
 
     baseXmlLoc = stampdir + "stamp_output/"
 
-    print "PATH: " + baseXmlLoc + appPath + xmlName
+    print ("PATH: ", baseXmlLoc, appPath, xmlName)
 
     reftxt = baseXmlLoc + appPath + "/chord_output/out_taintedRefVar.txt"
     primtxt = baseXmlLoc + appPath + "/chord_output/out_taintedPrimVar.txt"
@@ -114,7 +114,7 @@ def runAppWithStamp(stampdir, appdir):
                     now = datetime.datetime.now()
                     if (now - start).seconds > timeout:
                         os.killpg(process.pid, SIGTERM)
-                        print "timeout....." + apkfile
+                        print ("timeout.....", apkfile)
                         flag = True
                         break
 
@@ -136,12 +136,12 @@ def runAppWithStamp(stampdir, appdir):
                     pf.close()
 
                     os.system(str)
-                    print str + ':' + timecost
+                    print (str, ':', timecost)
 
 
 def main():
     if len(sys.argv) < 3:
-        print "Invalid arguments, you must provide both stamp and app dirs."
+        print ("Invalid arguments, you must provide both stamp and app dirs.")
         return
     
     #delete the previous.
@@ -159,7 +159,7 @@ def main():
     runAppWithStamp(stampdir, appdir)
 
     endtime = datetime.datetime.now()
-    print "Total execute time:"
+    print ("Total execute time:")
     print (endtime - starttime)
 
 if __name__ == "__main__":

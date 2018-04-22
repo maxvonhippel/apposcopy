@@ -72,7 +72,7 @@ def getTopAppsData( url, start, num, app_type ):
         myurl = title.get('href')
         result =  myurl.split('=')[1]
         #popString = popString + "\"" + result  + "\"" + ", "
-        print  "\"" + result  + "\"" + ", "
+        print ("\"",result,"\"",", ")
 
         """
         app_details = getAppDetails( title.get( 'href' ) )

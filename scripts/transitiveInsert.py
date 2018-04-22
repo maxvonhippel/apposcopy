@@ -43,7 +43,7 @@ def queryApp(dbDir):
                     else:
                         ##insert.
                         insertStmt = "insert into edge values(?,"+nodeId+","+str(row_t[0])+","+apkId+")"
-                        print "neet to insert....." + insertStmt
+                        print("neet to insert.....", insertStmt)
 
                         cur.executescript(insertStmt)
 
@@ -61,7 +61,7 @@ def queryApp(dbDir):
 
 def main():
     if len(sys.argv) < 2:
-        print "Invalid arguments, you must provide a database."
+        print("Invalid arguments, you must provide a database.")
         return
       
     dbDir = sys.argv[1]
@@ -71,7 +71,7 @@ def main():
     queryApp(dbDir)
 
     endtime = datetime.datetime.now()
-    print "Total execute time:"
+    print("Total execute time:")
     print (endtime - starttime)
 
 if __name__ == "__main__":

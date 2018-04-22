@@ -9,7 +9,7 @@ But I will switch to datalog anyway.
 """
 
 def cleanDB(dbName):
-    print 'sqlite_file: ' + dbName
+    print ('sqlite_file: ', dbName)
     conn = sqlite3.connect(dbName)
     c = conn.cursor()
     c.execute('delete from callerComp')

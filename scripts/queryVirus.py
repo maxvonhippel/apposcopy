@@ -1,6 +1,9 @@
 import postfile
+import sys
 
-print 'query virus file.'
+apiKey = 'bc3b30f092b84837c77108030bb10f06b0573e6a23518355004f3d2c87dd4176'
+
+print ('query virus file.')
 
 """
 host = "www.virustotal.com"
@@ -38,7 +41,8 @@ print json
 """
 
 
-malwareDir = "/home/yufeng/research/exp/VirusShare/"
+#malwareDir = "/home/yufeng/research/exp/VirusShare/"
+malwareDir = "/home/yu/research/benchmarks/fse/ADRD/"
 
 url = "https://www.virustotal.com/vtapi/v2/file/report"
 
@@ -48,7 +52,7 @@ for malware in os.listdir(malwareDir):
     #get the md5 code of the app.
     time.sleep(5)
     end = malware.find('.apk')
-    print malware +"---->"+ malware[10:end]
+    print (malware,"---->", malware[10:end])
     md5 = malware[10:end]
 
     parameters = {"resource": md5,
@@ -70,20 +74,24 @@ for malware in os.listdir(malwareDir):
         dict =  list['scans']
         report = dict['ESET-NOD32']
 
-        print md5 + '  NOD32 report: ' + str(report)
-        print md5 + '  Full report: ' + str(dict)
+        print (md5, '  NOD32 report: ', str(report))
+        print (md5, '  Full report: ', str(dict))
 
-        print 'FINISH: ' + str(cnt) + ' ************************************************************\n'
+        print ('FINISH: ', str(cnt), ' ************************************************************\n')
 
         if cnt%500 == 0:
        	    time.sleep(20)
 
 
     #except (RuntimeError,KeyError,ValueError): 
-    except: 
-        print 'OOPS....We get an error..'
+    except Exception as exp: 
+        print ('OOPS....We get an error..')
         pass
     finally:
         cnt = cnt + 1
 
-    
+def main(argv):
+    print ('Scan file: ', argv[0])
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

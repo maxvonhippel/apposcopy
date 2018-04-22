@@ -8,7 +8,7 @@ import os
 import datetime
 
 def queryApp(dbDir, appDir, sqlDir):
-    print dbDir + '  ' + appDir + ' ' + sqlDir
+    print (dbDir, appDir, sqlDir)
     
     querySet = {
         'DroidDream' : ''
@@ -87,12 +87,12 @@ def queryApp(dbDir, appDir, sqlDir):
             if matchFamily=='':
                 matchFamily = 'unknown'
 
-            print apkName + ' belongs to those families: ' + matchFamily + "  Original: " + output
+            print (apkName, ' belongs to those families: ', matchFamily, "  Original: ", output)
             
         
     except lite.Error, e:
         
-        print "Error %s:" % e.args[0]
+        print ("Error %s:" % e.args[0])
         sys.exit(1)
         
     finally:
@@ -103,7 +103,7 @@ def queryApp(dbDir, appDir, sqlDir):
 
 def main():
     if len(sys.argv) < 4:
-        print "Invalid arguments, you must provide database, app dir and sql dir."
+        print ("Invalid arguments, you must provide database, app dir and sql dir.")
         return
       
     dbDir = sys.argv[1]
@@ -115,7 +115,7 @@ def main():
     queryApp(dbDir, appdir, sqlDir)
 
     endtime = datetime.datetime.now()
-    print "Total execute time:"
+    print ("Total execute time:")
     print (endtime - starttime)
 
 if __name__ == "__main__":

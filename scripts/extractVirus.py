@@ -31,7 +31,7 @@ for family in malwareSet:
 	        for file in files:
                     apkfile = os.path.join(path, file)
 		    if apkcode in file:
-			print file
+			print (file)
 			shutil.copy(apkfile, family)
      
 

@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import re
 import fileinput
 from sets import Set

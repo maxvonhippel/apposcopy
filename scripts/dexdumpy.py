@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 ## Usage:
 # dexdump app.apk > dexdump.log
 # python dexdumpy.py dexdump.log
@@ -36,12 +34,12 @@ def sum_counts(current_node):
 def print_counts_rec(current_node, ns_level, ns_prefix):
     if(ns_level == 0):
         # Print counts for this node
-        print ns_prefix + "*\t" + str(sum_counts(current_node))
+        print (ns_prefix,"*\t", str(sum_counts(current_node)))
         return
     for ns_name, ns in current_node.items():
         # Print counts for this node if it contains any classes
         if "(class)" in ns_name:
-            print ns_prefix + "*\t" + str(sum_counts(current_node))
+            print (ns_prefix, "*\t", str(sum_counts(current_node)))
             return
     for ns_name, ns in current_node.items():  
         new_ns_prefix = ns_prefix + ns_name + "."
@@ -75,4 +73,4 @@ with open(sys.argv[1]) as f:
             add_count(current_class, count)            
             
 print_counts()
-print "Total (w/o android.support.v4):", count_total_app(), "bytes of dex bytecode"
+print ("Total (w/o android.support.v4):", count_total_app(), "bytes of dex bytecode")

@@ -180,7 +180,7 @@ def checkFeature(dbDir, sqlDir, appDir):
 
     except lite.Error, e:
         
-        print "Error %s:" % e.args[0]
+        print ("Error %s:" % e.args[0])
         sys.exit(1)
         
     finally:
@@ -206,8 +206,8 @@ def checkFeature(dbDir, sqlDir, appDir):
                         pair[appMap[key][0]] = pair[appMap[key][0]] + 1 
                 #    count = count + 1
 
-        print 'count = ' + str(len(equalist))
-        print pair
+        print ('count = ', str(len(equalist)))
+        print (pair)
         
         if con:
             con.close()
@@ -242,7 +242,7 @@ def addlist(mylist, entity):
 
 def main():
     if len(sys.argv) < 4:
-        print "Invalid arguments, you must provide app, db and sql."
+        print ("Invalid arguments, you must provide app, db and sql.")
         return
       
     dbDir = sys.argv[1]
@@ -254,7 +254,7 @@ def main():
     checkFeature(dbDir, sqlDir,appDir)
 
     endtime = datetime.datetime.now()
-    print "Total execute time:"
+    print ("Total execute time:")
     print (endtime - starttime)
 
 if __name__ == "__main__":

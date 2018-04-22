@@ -159,15 +159,15 @@ class FDroidCrawler:
         apk_links = page.getLinks(FDroid_Params.APK_LINK_TEXT)
         if len(apk_links) == 0:
             if(VERBOSE):
-                print "WARNING: No APK file found for application %s on the " \
-                      "f-droid marketplace." % app_name
+                print ("WARNING: No APK file found for application %s on the " \
+                      "f-droid marketplace." % app_name)
             apk_links.append(None)
 
         src_links = page.getLinks(FDroid_Params.SRC_LINK_TEXT)
         if len(src_links) == 0:
             if(VERBOSE):
-                print "WARNING: No source code found for application %s on " \
-                      "the f-droid marketplace." % app_name
+                print ("WARNING: No source code found for application %s on " \
+                      "the f-droid marketplace." % app_name)
             src_links.append(None)
 
         return FDroidApp(app_name, apk_links[0], src_links[0])
@@ -199,9 +199,9 @@ class FDroidCrawler:
                 ret_code = subprocess.call(['tar', '-xf', src_file,
                                             '-C', src_dir])
                 if ret_code != 0 and VERBOSE:
-                    print "WARNING: Unable to extract source code archive %s " \
+                    print ("WARNING: Unable to extract source code archive %s " \
                           "of app %s downloaded from the f-droid marketplace." \
-                          % (src_file, app_name)
+                          % (src_file, app_name))
             else:
                 with open(os.path.join(src_dir, "ERROR.txt"), 'w') as f:
                     f.write("The source for this app could not be " \
@@ -216,7 +216,7 @@ class FDroidCrawler:
 
 def main():
     if(len(sys.argv) != 2):
-        print "USAGE: crawly.py path_to_apps_directory"
+        print ("USAGE: crawly.py path_to_apps_directory")
         sys.exit(2)
     root_dir = sys.argv[1]
     crawlers = [FDroidCrawler(root_dir)]

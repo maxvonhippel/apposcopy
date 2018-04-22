@@ -264,7 +264,7 @@ def processKind(kind):
 ############################
 
 if len(sys.argv) < 3:
-	print "Please supply a path to the manifest file and a filename for output"
+	print ("Please supply a path to the manifest file and a filename for output")
 	sys.exit()
 
 

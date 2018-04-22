@@ -39,4 +39,4 @@ def selectDFATable(conn):
     cursor.execute(sql)
 
     for v in cursor.fetchall():
-        print v
+        print (v)
