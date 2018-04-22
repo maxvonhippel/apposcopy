@@ -23,7 +23,7 @@ manually install old SDKs from level 3 to level 19 using the interface of Androi
 All experiments were done under Ubuntu.
 
 -----------------------------------------------------------------------
-[x] How to compute ICCG of an apk?
+## How to compute ICCG of an apk?
 
 To analyze a malware (Say, an app from ADRD family):
 
@@ -39,7 +39,7 @@ To analyze a malware (Say, an app from ADRD family):
     
         `stamp_output/_home_yu_research_ndss17-release_apposcopy_adrd_09b143b430e836c513279c0209b7229a4d29a18c.apk/09b143b430e836c513279c0209b7229a4d29a18c.json`
 
-[x] How to compute a signature of multiple ICCGs?
+## How to compute a signature of multiple ICCGs?
 
 1. Generate a new signature based on a random number of ICCGs of a given directory:
 
@@ -52,7 +52,7 @@ To analyze a malware (Say, an app from ADRD family):
 
    Note that different runs may generate different signatures.
 
-[x] How to test if an app (Given its ICCG) is benign or malware?
+## How to test if an app (Given its ICCG) is benign or malware?
 
 1. To use the zero-day malware detection you just need to use the script ./approximate.sh
 
@@ -74,7 +74,7 @@ To analyze a malware (Say, an app from ADRD family):
    10000 ADRD
 ```
 
-   Example2a using lexicographical order:
+   Example 2a using lexicographical order:
    
 ```
    ./approximate.sh signatures samples/fse14/ADRD/09b143b430e836c513279c0209b7229a4d29a18c.json 4927 0
@@ -98,7 +98,7 @@ To analyze a malware (Say, an app from ADRD family):
    49 jSMSHider
 ```
 
-   Example2b using lexicographical order with frequency analysis:
+   Example 2b using lexicographical order with frequency analysis:
    
 ```
    ./approximate.sh signatures samples/fse14/ADRD/09b143b430e836c513279c0209b7229a4d29a18c.json 4927 1		
